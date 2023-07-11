@@ -37,6 +37,7 @@ export class Card {
 
   set cardNumber(value) {
     this._cardNumber = value;
+    console.log('num',value, this._cardNumber);
   };
 
   get cardNumber() {
@@ -84,6 +85,11 @@ export class AmaizingCard extends Card {
       const myError = new MyError('LoadingImage', 'Image loading error');
 
       modalRezalt('Ошибка загрузки изображения');
+      if (document.querySelector('.modal__body')) {
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000)
+      }
       document.querySelector('.game__field').remove();
       throw myError
     };
@@ -110,13 +116,14 @@ export class AmaizingCard extends Card {
     const imges = [
       './img/1.jpg',
       './img/2.jpg',
-     './img/3.jpg',
+      './img/3.jpg',
       './img/4.jpg',
       './img/5.jpg',
     ]
     for (let i = 0; i < imges.length; i++) {
-        if (value === i) {
+        if ((value - 1) === i) {
           this._cardNumber = imges[i]
+          console.log('value',value, 'index', i);
         };
       };
   };

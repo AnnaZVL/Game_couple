@@ -13,7 +13,7 @@ export function renderStartField() {
     $title.classList.add('title');
 
     $inputNamber.classList.add('input-number');
-    $inputNamber.placeholder = '4';
+    $inputNamber.placeholder = 'Введите число';
 
     $text.textContent = 'Введите четное число от 2 до 10';
     $text.classList.add('text');
